@@ -1,7 +1,7 @@
 import imgElim from "../assets/Eliminar.png"
 import "../styles/Carrito.css"
 
-function CarritoCard2({ producto, funcionDisparadora }) {
+function CarritoCard2({ producto, funcionDisparadora, aumentarCantidad, disminuirCantidad }) {
 
     function borrarDelCarrito() {
         console.log("Paso 1")
@@ -21,14 +21,14 @@ function CarritoCard2({ producto, funcionDisparadora }) {
 
 
             <div className="prod-carrito2">
-                
+
                 <div className="prod-producto">
                     <p className="titulos-card2"> Producto: </p>
                     <div className="prod-img-card2">
-                    <p className="carrito-producto2">{producto.name}</p>
-                    <img className="carrito-image imagen-card2" src={producto.imagen}></img>
+                        <p className="carrito-producto2">{producto.name}</p>
+                        <img className="carrito-image imagen-card2" src={producto.imagen}></img>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -37,9 +37,15 @@ function CarritoCard2({ producto, funcionDisparadora }) {
                 {<p className="descripcion-carrito2">{producto.description}</p>}
             </div>
 
-            <div className="prod-cantidad">
+            {/* <div className="prod-cantidad">
                 <p className="titulos-card2"> Cantidad: </p>
                 <span>{producto.cantidad}</span>
+            </div> */}
+
+            <div className="cantidad-control">
+                <button className="btncant" onClick={() => disminuirCantidad(producto.id)}>-</button>
+                <span>{producto.cantidad}</span>
+                <button className="btncant" onClick={() => aumentarCantidad(producto.id)}>+</button>
             </div>
 
             <div className="prod-unitario">

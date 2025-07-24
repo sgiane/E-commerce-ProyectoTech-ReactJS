@@ -30,6 +30,9 @@ function FormularioProducto({}) {
     if (!producto.imagen.trim()){
       return "La URL de la imagen no debe estar vacía"
     }
+    if (!producto.stock.trim()) {
+      return "Agrega la cantidad de productos";
+    }
     else {
       return true;
     }

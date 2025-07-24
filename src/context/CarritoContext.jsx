@@ -28,6 +28,24 @@ export function CarritoProvider({ children }) {
     }
   };
 
+function aumentarCantidad(id) {
+  const carritoActualizado = productosCarrito.map((producto) =>
+    producto.id === id
+      ? { ...producto, cantidad: producto.cantidad + 1 }
+      : producto
+  );
+  setProductosCarrito(carritoActualizado);
+}
+
+function disminuirCantidad(id) {
+  const carritoActualizado = productosCarrito.map((producto) =>
+    producto.id === id && producto.cantidad > 1
+      ? { ...producto, cantidad: producto.cantidad - 1 }
+      : producto
+  );
+  setProductosCarrito(carritoActualizado);
+}
+
   const vaciarCarrito = () => {
     setProductosCarrito([]);
   };
@@ -40,7 +58,7 @@ export function CarritoProvider({ children }) {
 
   return (
     <CarritoContext.Provider
-      value={{ productosCarrito, agregarAlCarrito, vaciarCarrito, borrarProductoCarrito }}
+      value={{ productosCarrito, agregarAlCarrito, vaciarCarrito, borrarProductoCarrito, aumentarCantidad, disminuirCantidad}}
     >
       {children}
     </CarritoContext.Provider>

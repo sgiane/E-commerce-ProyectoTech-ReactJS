@@ -2,7 +2,7 @@ import imgElim from "../assets/Eliminar.png"
 import "../styles/Carrito.css"
 
 
-function CarritoCard({producto, funcionDisparadora}){
+function CarritoCard({producto, funcionDisparadora, aumentarCantidad, disminuirCantidad}){
 
 
     
@@ -10,14 +10,6 @@ function CarritoCard({producto, funcionDisparadora}){
         console.log("Paso 1")
         funcionDisparadora(producto.id)
     }
-
-//   function sumarCantidad() {
-//     setCantidad(producto.cantidad + 1);
-//   }
-
-//   function restarCantidad() {
-//     if (producto.cantidad > 1) setCantidad(producto.cantidad - 1);
-//   }
 
     return(
         <div className="carrito-card" >
@@ -28,10 +20,16 @@ function CarritoCard({producto, funcionDisparadora}){
             {<p className="descripcion-carrito">{producto.description}</p>}
 
         {/* <div className="detalle-contador">
-          <button className="bot-cont" onClick={restarCantidad}>-</button> */}
+          <button className="bot-cont" onClick={restarCantidad}>-</button>
           <span>{producto.cantidad}</span>
-          {/* <button className="bot-cont" onClick={sumarCantidad}>+</button>
+          <button className="bot-cont" onClick={sumarCantidad}>+</button>
         </div> */}
+
+        <div className="cantidad-control">
+                <button className="btncant" onClick={() => disminuirCantidad(producto.id)}>-</button>
+                <span className="cant">{producto.cantidad}</span>
+                <button className="btncant" onClick={() => aumentarCantidad(producto.id)}>+</button>
+            </div>
             
 
 

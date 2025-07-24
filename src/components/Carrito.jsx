@@ -8,7 +8,7 @@ import { useAuthContext } from "../context/AuthContext.jsx";
 
 export default function Carrito() {
   const { user } = useAuthContext();
-  const { productosCarrito, vaciarCarrito, borrarProductoCarrito } =
+  const { productosCarrito, vaciarCarrito, borrarProductoCarrito, aumentarCantidad, disminuirCantidad } =
     useContext(CarritoContext);
 
   console.log("Productos: " + productosCarrito);
@@ -50,6 +50,8 @@ export default function Carrito() {
               <CarritoCard
                 producto={producto}
                 funcionDisparadora={funcionDisparadora}
+                aumentarCantidad={aumentarCantidad}
+                disminuirCantidad={disminuirCantidad}
               />
             </div>
 
@@ -58,6 +60,8 @@ export default function Carrito() {
               <CarritoCard2
                 producto={producto}
                 funcionDisparadora={funcionDisparadora}
+                aumentarCantidad={aumentarCantidad}
+                disminuirCantidad={disminuirCantidad}
               />
             </div>
           </div>
