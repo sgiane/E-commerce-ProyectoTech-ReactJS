@@ -1,0 +1,60 @@
+.formAddProd{
+    width: 50%;
+    margin: auto;
+    height: 100%;
+    gap:30px;
+}
+
+.label-addProd{
+    font-size: 20px;
+    color: #b44173;
+    font-weight: bold;
+    text-align: start;
+}
+
+.input-addProd{
+    padding: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background: none;
+    color: black;
+    border: none;
+    border-bottom: #b44173 4px solid;
+    border-radius: 30px;
+    width: 100%;
+    box-shadow: 8px 8px 3px #b44173;
+    text-align: center;
+}
+
+.descProductos{
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background: none;
+    color: black;
+    border: none;
+    border-bottom: #b44173 4px solid;
+    border-radius: 30px;
+    width: 100%;
+    box-shadow: 8px 8px 3px #b44173;
+}
+
+.subtitulo{
+    font-size: 30px;
+    color: #b44173;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.botonFormProductos{
+    width: 250px;
+    margin: auto;
+    background-color: #b44173;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    text-align: center;
+}

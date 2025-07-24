@@ -1,0 +1,125 @@
+.contactoForm{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+
+}
+
+.form-contacto{
+    /* width: 60%; */
+    margin: auto;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    /* gap: 30px; */
+}
+
+.item-form{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 60%;
+    margin: auto;
+    gap: 50px;
+}
+
+.label-item{
+    font-size: 20px;
+    color: #b44173;
+    font-weight: bold;
+    text-align: start;
+    padding: 15px 0;
+
+}
+
+.input-item, .textarea-form{
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background: none;
+    color: black;
+    border: none;
+    border-bottom: #b44173 4px solid;
+    border-radius: 30px;
+    width: 350px;
+    box-shadow: 8px 8px 3px #b44173;
+}
+
+.subtitulo{
+    font-size: 30px;
+    color: #b44173;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.subtitulo2{
+    color: #b44173;
+    margin-bottom: 20px;
+}
+
+.subtitulo3{
+    font-size: 25px;
+    margin-top: 60px;
+}
+
+.mail{
+    font-size: 20px                 ;
+}
+
+.input-item, 
+.textarea-form:focus{
+   outline: none;
+}
+
+.btn-contacto{
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #b44173;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+
+.btn-contacto:hover{
+    background-color: #e0c7f6;
+    color: #b44173;
+    border: #b44173 3px solid;
+}
+
+span{
+    font-weight: bolder;
+     color: #b44173
+}
+
+.mapa-container {
+    margin-top: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 8px 8px 3px #b44173;
+}
+
+@media only screen and (max-width: 600px){
+    .item-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .form-contacto{
+        margin: 0;
+        width: 100%;
+    }
+
+    .label-item,
+    .input-item {
+        width: 100%;
+    }
+}
+
