@@ -2,26 +2,27 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { dispararSweetBasico } from "../assets/SweetAlert";
 import { useProductosContext } from "../context/ProductosContext";
+import "../styles/FormularioProd.css"
+// import { useAuthContext } from "../context/AuthContext";
 
-export default function FormularioEditar() {
+function FormularioEditar({}) {
 
-  const { obtenerProducto, productoEncontrado, editarProducto } = useProductosContext();
+  const { obtenerProducto, editarProducto } = useProductosContext();
   const { id } = useParams();
   const navigate = useNavigate();
-  const [producto, setProducto] = useState(productoEncontrado);
-  const [cargando, setCargando] = useState(null);
+
+  const [producto, setProducto] = useState(null);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(null);
+  
 
   useEffect(() => {
 
-    obtenerProducto(id).then(() => {
+    obtenerProducto(id).then((prod) => {
+      setProducto(prod);
       setCargando(false);
     }).catch((error) => {
-      if (error == "Producto no encontrado.") {
-        setError("Producto no encontrado.")
-      }
-      if (error == "Hubo un error al obtener el producto.") {
-        setError("Hubo un error al obtener el producto.")
-      }
+      setError(error);
       setCargando(false);
     })
   }, [id]);
@@ -31,26 +32,7 @@ export default function FormularioEditar() {
     setProducto({ ...producto, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validarForm = validarFormulario();
-    if (validarForm == true) {
-     await editarProducto(producto).then((prod) => {
-        dispararSweetBasico("Producto Actualizado correctamente", "", "success", "Aceptar")
-        navigate ("/admin");
-      }).catch((error) => {
-        dispararSweetBasico("Hubo un problema al actualizar el producto.", error, "error", "Confirmar");
-      })
-    }  else {
-          dispararSweetBasico(
-            "Error al cargar el producto",
-            validarForm,
-            "Error",
-            "Cerrar"
-          );
-        }
-  };
-
+  
   const validarFormulario = () => {
     if (!producto.name.trim()) {
       return "El nombre es obligatorio.";
@@ -72,26 +54,49 @@ export default function FormularioEditar() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validarForm = validarFormulario();
+    if (validarForm == true) {
+     editarProducto(producto).then(() => {
+        dispararSweetBasico("Producto Actualizado correctamente", "", "success", "Aceptar")
+        navigate ("/admin");
+      }).catch((error) => {
+        dispararSweetBasico("Hubo un problema al actualizar el producto.", error, "error", "Confirmar");
+      })
+    }  else {
+          dispararSweetBasico(
+            "Error al cargar el producto",
+            validarForm,
+            "Error",
+            "Cerrar"
+          );
+        }
+  };
+
 
   if (cargando) return <p>Cargando producto...</p>;
+  if (error) return <p>{error}</p>;
   if (!producto) return <p>Producto no encontrado.</p>;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Editar Producto</h2>
+    <form className="formProd" onSubmit={handleSubmit}>
+      <h2 className="subtitulo">Editar Producto</h2>
       <div>
-        <label>Nombre del Producto:</label>
+        <label className="label-addProd">Nombre del Producto:</label>
         <input
+        className="input-addProd"
           type="text"
           name="name"
-          value={producto.name || ''}
+          value={producto.name}
           onChange={handleChange}
           required
         />
       </div>
       <div>
-        <label>URL de la Imagen:</label>
+        <label className="label-addProd">URL de la Imagen:</label>
         <input
+        className="input-addProd"
           // className="input-addProd"
           type="text"
           name="imagen"
@@ -101,29 +106,31 @@ export default function FormularioEditar() {
         />
       </div>
       <div>
-        <label>Precio:</label>
+        <label className="label-addProd">Precio:</label>
         <input
+        className="input-addProd"
           type="number"
           name="price"
-          value={producto.price || ''}
+          value={producto.price}
           onChange={handleChange}
           required
           min="0"
         />
       </div>
       <div>
-        <label>Descripción:</label>
+        <label className="label-addProd">Descripción:</label>
         <textarea
+        className="input-addProd"
           name="description"
-          value={producto.description || ''}
+          value={producto.description}
           onChange={handleChange}
           required
         />
       </div>
       <div>
-        <label>Cantidad:</label>
+        <label className="label-addProd">Cantidad:</label>
         <input
-          // className="input-addProd"
+        className="input-addProd"
           type="text"
           name="stock"
           value={producto.stock}
@@ -131,7 +138,9 @@ export default function FormularioEditar() {
           required
         />
       </div>
-      <button type="submit">Actualizar Producto</button>
+      <button className="botonFormProductos" type="submit">Actualizar Producto</button>
     </form>
   );
 }
+
+export default FormularioEditar

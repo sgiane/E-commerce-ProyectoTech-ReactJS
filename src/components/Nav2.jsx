@@ -51,9 +51,9 @@ function Nav2() {
               <Link className="navbar-item" to="/contacto" >Contacto</Link>
             </NavItem>
 
-            {admin ? <NavItem>
+            {admin && (<NavItem>
               <Link className="navbar-item" to="/admin" >Admin</Link>
-            </NavItem>: <></>}   
+            </NavItem>)}   
 
             {user ? (
   <NavItem>

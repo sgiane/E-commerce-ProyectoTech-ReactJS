@@ -1,8 +1,7 @@
-.formAddProd{
+.formProd{
     width: 50%;
     margin: auto;
     height: 100%;
-    gap:30px;
 }
 
 .label-addProd{
@@ -10,6 +9,7 @@
     color: #b44173;
     font-weight: bold;
     text-align: start;
+    margin-bottom: 15px;
 }
 
 .input-addProd{
@@ -24,6 +24,7 @@
     width: 100%;
     box-shadow: 8px 8px 3px #b44173;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .descProductos{
@@ -57,4 +58,6 @@
     text-transform: uppercase;
     border-radius: 30px;
     text-align: center;
+    margin-top: 10px;
 }
+

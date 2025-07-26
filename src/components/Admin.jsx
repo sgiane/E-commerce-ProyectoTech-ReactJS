@@ -7,7 +7,7 @@ import { useProductosContext } from "../context/ProductosContext.jsx";
 import { dispararSweetBasico } from "../assets/SweetAlert.js";
 
 export default function Admin() {
-  const { admin } = useAuthContext();
+  const { admin, isVerificando } = useAuthContext();
   const { productos, obtenerProductos, eliminarProducto } = useProductosContext();
   const navigate = useNavigate();
   // const [productos, setProductos] = useState([]);
@@ -16,7 +16,7 @@ export default function Admin() {
 
   function dispararEliminar(id) {
     eliminarProducto(id).then(() => {
-      navigate("/productos")
+      navigate("/admin")
     }).catch((error) => {
       dispararSweetBasico("Hubo un problema al eliminar el producto", error, "error", "Cerrar")
     })

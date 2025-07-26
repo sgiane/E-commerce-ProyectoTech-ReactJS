@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './layouts/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -15,9 +15,16 @@ import Footer from './components/Footer';
 import Nav2 from './components/Nav2';
 import FormularioProducto from './components/FormularioProductos';
 import FormularioEditar from './components/FormularioEditar';
+import { useAuthContext } from './context/AuthContext';
 
 
 function App() {
+
+  const {verificacionLog} = useAuthContext();
+
+  useEffect(() => {
+    verificacionLog()
+  }, [])
 
   return (
     <Router>

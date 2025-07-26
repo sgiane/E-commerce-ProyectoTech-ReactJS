@@ -79,7 +79,7 @@ const navigate = useNavigate();
     }
 
   return (
-    <form className="formAddProd" onSubmit={handleSubmit2}>
+    <form className="formProd" onSubmit={handleSubmit2}>
       <h2 className="subtitulo">Agregar Producto</h2>
       <div>
         <label className="label-addProd">Nombre del Producto:</label>
