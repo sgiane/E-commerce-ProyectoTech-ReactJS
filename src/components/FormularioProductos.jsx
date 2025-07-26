@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { dispararSweetBasico } from "../assets/SweetAlert";
-import { data, Navigate } from "react-router-dom";
+import { data, Navigate, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import "../styles/FormularioProd.css";
 import { useProductosContext } from "../context/ProductosContext";
@@ -8,6 +8,7 @@ import { useProductosContext } from "../context/ProductosContext";
 function FormularioProducto({}) {
       const {agregarProducto} = useProductosContext();
       const {admin} = useAuthContext();
+const navigate = useNavigate();
 
   const [producto, setProducto] = useState({
     name: "",
@@ -49,6 +50,8 @@ function FormularioProducto({}) {
     if (validarForm == true) {
       agregarProducto(producto).then((data) => {
       setProducto({ name: "", price: "", description: "", imagen: "", stock: ""});
+      dispararSweetBasico("Producto agregado correctamente.", "", "success", "Cerrar");
+        navigate ('/admin');
       }).catch((error) =>{
         dispararSweetBasico("Hubo un problema al agregar el producto.", error, "error", "Cerrar")
       })

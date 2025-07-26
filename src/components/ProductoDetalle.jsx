@@ -4,13 +4,15 @@ import "../styles/ProductoDetalle.css";
 import { dispararSweetBasico } from "../assets/SweetAlert";
 import { Link } from "react-router-dom";
 import { CarritoContext } from "../context/CarritoContext";
+import { useProductosContext } from "../context/ProductosContext";
 
 function ProductoDetalle({}) {
 
   const {agregarAlCarrito} = useContext(CarritoContext)
+  const {productoEncontrado, obtenerProducto} = useProductosContext();
 
   const { id } = useParams();
-  const [producto, setProducto] = useState(null);
+  // const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
@@ -18,28 +20,23 @@ function ProductoDetalle({}) {
   console.log(id)
 
   useEffect(() => {
-    fetch("https://682e1895746f8ca4a47be0bf.mockapi.io/productos")
-      .then((res) => res.json())
-      .then((datos) => {
-        const productoEncontrado = datos.find((item) => item.id === id);
-        if (productoEncontrado) {
-          setProducto(productoEncontrado);
-        } else {
-          setError("Producto no encontrado.");
-        }
-        setCargando(false);
-      })
-      .catch((err) => {
-        console.log("Error:", err);
-        setError("Hubo un error al obtener el producto.");
-        setCargando(false);
-      });
+    obtenerProducto(id).then(()=> {
+      setCargando(false);
+    }).catch((error) => {
+      if (error == "Producto no encontrado."){
+        setError("Producto no encontrado.")
+      }
+      if (error == "Hubo un error al obtener el producto."){
+        setError("Hubo un error al obtener el producto.")
+      }
+            setCargando(false);
+    })
   }, [id]);
 
   function funcionCarrito() {
     if (cantidad < 1) return;
     dispararSweetBasico("Producto Agregado", "El producto fue agregado al carrito con éxito", "success", "Cerrar");
-    agregarAlCarrito({ ...producto, cantidad });
+    agregarAlCarrito({ ...productoEncontrado, cantidad });
   }
 
   function sumarContador() {
@@ -52,16 +49,16 @@ function ProductoDetalle({}) {
 
   if (cargando) return <p>Cargando producto...</p>;
   if (error) return <p>{error}</p>;
-  if (!producto) return null;
+  if (!productoEncontrado) return null;
 
   return (
     <div className="detalle-container">
       
-      <img className="detalle-imagen" src={producto.imagen} alt={producto.name} />
+      <img className="detalle-imagen" src={productoEncontrado.imagen} alt={productoEncontrado.name} />
       <div className="detalle-info">
-        <h2>{producto.name}</h2>
-        <p>{producto.description}</p>
-        <p>{producto.price} $</p>
+        <h2>{productoEncontrado.name}</h2>
+        <p>{productoEncontrado.description}</p>
+        <p>{productoEncontrado.price} $</p>
         <div className="detalle-contador">
           <button className="bot-cont" onClick={restarContador}>-</button>
           <span>{cantidad}</span>

@@ -1,17 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext.jsx";
 import { FaEdit, FaTrash } from "react-icons/fa"; // Importa los iconos de react-icons
 import "../styles/Admin.css";
 import { useProductosContext } from "../context/ProductosContext.jsx";
+import { dispararSweetBasico } from "../assets/SweetAlert.js";
 
 export default function Admin() {
   const { admin } = useAuthContext();
-  const { productos, obtenerProductos } = useProductosContext();
-
+  const { productos, obtenerProductos, eliminarProducto } = useProductosContext();
+  const navigate = useNavigate();
   // const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+
+  function dispararEliminar(id) {
+    eliminarProducto(id).then(() => {
+      navigate("/productos")
+    }).catch((error) => {
+      dispararSweetBasico("Hubo un problema al eliminar el producto", error, "error", "Cerrar")
+    })
+  }
 
   useEffect(() => {
     obtenerProductos()
@@ -35,17 +44,6 @@ export default function Admin() {
   if (error) {
     return <p>{error}</p>;
   }
-
-  // Funciones para editar y eliminar (solo como ejemplo)
-  const handleEdit = (id) => {
-    console.log("Editar producto con id:", id);
-    // Aquí puedes agregar la lógica para redirigir al formulario de edición
-  };
-
-  const handleDelete = (id) => {
-    console.log("Eliminar producto con id:", id);
-    // Aquí puedes agregar la lógica para eliminar el producto
-  };
 
   return (
     <>
@@ -87,21 +85,26 @@ export default function Admin() {
 
               <div className="detProd">
                 {/* Icono de editar */}
-                <FaEdit
-                  style={{ cursor: "pointer", color: "orange", fontSize: "25px"}}
-                  onClick={() => handleEdit(producto.id)}
-                />
+
+                <Link to={`/admin/editar/${producto.id}`}>
+                  <FaEdit
+                    style={{ cursor: "pointer", color: "orange", fontSize: "25px" }}
+                  />
+                </Link>
 
                 {/* Icono de eliminar */}
+
+
                 <FaTrash
-                  style={{ cursor: "pointer", color: "red", fontSize: "25px"}}
-                  onClick={() => handleDelete(producto.id)}
+                  onClick={() => dispararEliminar(producto.id)}
+                  style={{ cursor: "pointer", color: "red", fontSize: "25px" }}
                 />
+
               </div>
             </div>
           ))}
         </div>
-        
+
       </section>
     </>
   );

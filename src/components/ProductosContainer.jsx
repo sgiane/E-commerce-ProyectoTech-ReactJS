@@ -7,7 +7,6 @@ import { useProductosContext } from "../context/ProductosContext";
 
 function ProductosContainer({ functionCarrito }) {
     const { productos, obtenerProductos } = useProductosContext()
-    // const [productosComponente, setProductosComponente] = useState([])
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
 
