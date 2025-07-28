@@ -125,9 +125,11 @@
 
 @media only screen and (max-width: 600px) {
     .detalle-container {
-        max-width: 95%;
-        padding: 10px;
-    }
+    width: 100vw;            /* Usa todo el ancho de la pantalla */
+    max-width: 100%;        /* Asegura que no lo limite */
+    margin: 0;               /* Elimina margen lateral */
+    box-sizing: border-box; /* Incluye el padding dentro del ancho */
+  }
 
     .detalle-imagen {
         width: 150px;
