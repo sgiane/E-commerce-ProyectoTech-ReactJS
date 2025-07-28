@@ -72,6 +72,32 @@
     border: #b44173 3px solid;
 }
 
+.btn-register{
+    width: 300px;
+    margin: auto;
+    /* margin-top: 20px; */
+    background-color: #b44173;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+
+.label-register{
+    margin: 0;
+    color: #b44173;
+    font-weight: bold;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 @media only screen and (max-width: 600px){
     .form-admin{
@@ -101,13 +127,12 @@
         flex-direction: column;
         width: 100%;
         align-items: center;
-        gap: 5px;
-
-        
+        gap: 5px;     
     }
 
-    .btn-login{
-        width: 250px;
-        margin: 0;
+    .btn-login,
+    .btn-register{
+        width: 200px;
+
     }
 }

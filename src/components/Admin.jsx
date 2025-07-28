@@ -52,17 +52,8 @@ export default function Admin() {
         <h2 className="subtitulo2">Productos en Stock</h2>
 
         <div className="btnAddProd">
-          {admin ? (
-            <button className="btnAgregarProd">
-              <Link className="navbar-item linkAddProd"
-                to="/admin/agregarProductos">+ Agregar Productos
-              </Link>
-            </button>
-          ) : (
-            <></>
-          )}
-        </div>
-
+                    {admin ? <button className="boton-card-producto btnAggProd"><Link className="linkProd" to="/admin/agregarProductos" >+ Agregar Productos</Link></button> : <></>}
+                </div>
         <div className="admin-headers">
           <p>PRODUCTO</p>
           <p>PRECIO</p>

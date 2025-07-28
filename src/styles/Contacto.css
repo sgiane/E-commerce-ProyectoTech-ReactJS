@@ -102,7 +102,13 @@ span{
     box-shadow: 8px 8px 3px #b44173;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1280px){
+
+    .contactoForm{
+        display: flex;
+        flex-direction: column;
+    }
+
     .item-form{
         display: flex;
         flex-direction: column;
@@ -118,7 +124,8 @@ span{
     }
 
     .label-item,
-    .input-item {
+    .input-item,
+    .textarea-form {
         width: 100%;
     }
 }

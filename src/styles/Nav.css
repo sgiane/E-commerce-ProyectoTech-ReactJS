@@ -48,7 +48,7 @@
     display: flex;
     justify-content: start;
     flex: 1; /* Hace que cada item ocupe el mismo ancho */
-    /* text-align: start; */
+    text-align: start;
     text-decoration: none;
     /* width: 200px; */
 }

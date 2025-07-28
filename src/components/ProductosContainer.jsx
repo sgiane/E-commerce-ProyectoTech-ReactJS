@@ -33,7 +33,7 @@ function ProductosContainer({ functionCarrito }) {
         return (
             <>
                 <div className="btnAddProd">
-                    {admin ? <button className="boton-card-producto btnAgregarProd"><Link className="navbar-item linkAddProd" to="/admin/agregarProductos" >+ Agregar Productos</Link></button> : <></>}
+                    {admin ? <button className="boton-card-producto btnAggProd"><Link className="linkProd" to="/admin/agregarProductos" >+ Agregar Productos</Link></button> : <></>}
                 </div>
                 <div className="productos-conteiner">
                     {productos.map((producto) => (

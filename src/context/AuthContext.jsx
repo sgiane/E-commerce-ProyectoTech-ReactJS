@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { logearG } from '../auth/firebase';
 // Crear el contexto de autenticación
 const AuthContext = createContext();
 
@@ -13,6 +14,15 @@ export function AuthProvider({ children }) {
     setUser(username);
     setAdmin(username === "admin@gmail.com")
   };
+
+  function logearGmail(){
+    logearG().then((data) => {
+      console.log(data)
+      const token = `fake-token-${data.email}`;
+      setUser(data.email)
+      localStorage.setItem('authToken', token);
+    })
+    }
 
   const logout = () => {
     localStorage.removeItem('authToken');
@@ -41,7 +51,7 @@ export function AuthProvider({ children }) {
 };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog}}>
+    <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog, logearGmail}}>
       {children}
     </AuthContext.Provider> );
 }

@@ -28,25 +28,24 @@
     margin: 30px 0;
 }
 
-.btnAgregarProd{
-    width: 200px;
-    padding: 5px;
-    font-size: 10px;
-    color: #e0c7f6;
-    background-color: #b44173;
-    border: 2px solid ;
-    border-radius: 20px;
-    font-weight: bold;
-    margin: auto;
-    text-transform: uppercase;
-
-}
-
-
 .linkAddProd{
     justify-content: center;
     padding: 0;
   font-size: 15px;
+}
+
+.linkProd{
+    color: #ebdbf9;
+    padding: 3px 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    flex: 1; /* Hace que cada item ocupe el mismo ancho */
+    text-align: start;
+    text-decoration: none;
+    font-size: 12px;
+    /* width: 200px; */
 }
 
 .formAddProd{
@@ -54,7 +53,67 @@
     flex-direction: column;
 }
 
-.btnAddProd{
-    text-align: end;
-    margin-bottom: 30px;
+
+
+@media only screen and (max-width: 600px) {
+  .subtitulo,
+  .subtitulo2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .btnAddProd {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .btnAgregarProd {
+    width: 140px;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .btnAgregarProd .navbar-item {
+    font-size: 10px;
+  }
+
+  .admin-headers,
+  .listaProductos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    gap: 5px;
+    padding: 10px 0;
+  }
+
+  .nomProd,
+  .detProd {
+    font-size: 18px;
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .detProd {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .admin-headers{
+    display: none;
+  }
+  .listaProductos p {
+    margin: 0;
+  }
+
+  .listaProductos{
+        border: #b44173 2px solid;
+        margin-bottom: 10px;
+
+  }
+
+  .admin-productos {
+    padding: 0 10px;
+  }
 }
