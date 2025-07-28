@@ -1,4 +1,6 @@
-# PROYECTO E-COMMERCE MI DULCE GIANE (REACT JS)
+<div align="center">
+ <h1>PROYECTO E-COMMERCE MI DULCE GIANE (REACT JS)</h1>
+</div>
 
 <div align="center">
   <img src="./src/assets/Logo2.png" alt="Logo del Sitio"/>
