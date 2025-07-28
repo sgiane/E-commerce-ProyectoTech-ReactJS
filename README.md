@@ -19,7 +19,7 @@ Sitio Web E-commerce de ventas de Tortas Caseras (Venezolanas y Argentinas)
 
 ### Demo
 
-![Demo de la página.](./src/assets/Demo.mp4)
+https://github.com/sgiane/E-commerce-ProyectoTech-ReactJS/blob/main/src/assets/Demo.mp4
 
 * Inicio
 
