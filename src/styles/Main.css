@@ -10,30 +10,45 @@
     font-size: 48px;
     color: #b44173;
     margin: 0 0 25px 0;
+      text-align: center;
 }
 
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    width: 70%;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
-    gap: 30px;
+.carousel {
+  max-width: 900px;
+  margin: 40px auto;
 }
 
-.img-gallery{
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
-    border: #b44173 4px solid;
+.carousel-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+    margin: 10px;
+
 }
 
-@media only screen and (max-width: 992px) {
+@media (max-width: 768px) {
 
-  .titulo-bienvenida{
-    font-size: 35px;
-    font-weight: bolder;
+   .titulo-bienvenida{
+    font-size: 40px;
+  }
+
+  .carousel-img {
+    width: 45%;
+    height: 250px;
   }
 }
 
+
+@media (max-width: 576px) {
+
+  .titulo-bienvenida{
+    font-size: 35px;
+  }
+
+  .carousel-img {
+    width: 90%;
+    height: 250px;
+  }
+}

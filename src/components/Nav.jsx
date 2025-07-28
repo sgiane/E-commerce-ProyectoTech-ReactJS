@@ -3,6 +3,8 @@ import "../styles/Nav.css"
 import icoCart from "../assets/cart-icon.svg"
 import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 function Nav({}) {
 
@@ -22,6 +24,8 @@ function Nav({}) {
                 <li className="navbar-item carrito-item">
                     <Link to="/carrito" className="carrito-link">
                         <img src={icoCart} alt="Carrito" />
+                        <FaShoppingCart />
+
                         {productosCarrito.length > 0 && (
                             <span className="carrito-contador">{productosCarrito.length}</span>
                         )}

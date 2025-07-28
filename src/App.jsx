@@ -32,7 +32,6 @@ function App() {
         <Header/>
       </div>
       <div className='navbar'>
-        {/* <Nav productosCarrito={productosCarrito} /> */}
         <Nav2 />
       </div>
       <div className='pages-conteiner'>

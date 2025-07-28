@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from "react-router-dom"; // Importamos Link de react-router-dom
 import "../styles/Nav.css";
-import icoCart from "../assets/cart-icon.svg";
 import {
   Collapse,
   Navbar,
@@ -12,6 +11,8 @@ import {
 import { CarritoContext } from '../context/CarritoContext';
 import { useAuthContext } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 
 function Nav2() {
@@ -73,7 +74,10 @@ function Nav2() {
 
             <NavItem className="carrito-item">
               <Link className=" carrito-link" to="/carrito" >
-                <img className='ico-eliminar' src={icoCart} alt="Carrito" />
+                <FaShoppingCart 
+                style={{ color: "#ebdbf9", width:"25px", height: "25px"}}
+                />
+
                 {productosCarrito.length > 0 && (
                   <span className="carrito-contador">{productosCarrito.length}</span>
                 )}

@@ -4,6 +4,7 @@ import { dispararSweetBasico, dispararSweetBasico2} from '../assets/SweetAlert';
 const ProductosContext = createContext();
 export function ProductosProvider({ children }) {
     const [productos, setProductos] = useState([]);
+    const [productosOriginales, setProductosOriginales] = useState([])
     const [productoEncontrado, setProductoEncontrado] = useState(null)
 
     function obtenerProductos() {
@@ -16,6 +17,7 @@ export function ProductosProvider({ children }) {
                     .then((datos) => {
                         console.log(datos)
                         setProductos(datos)
+                        setProductosOriginales(datos)
                         res(datos)
                     })
                     .catch((error) => {
@@ -127,9 +129,22 @@ const eliminarProducto = async (id) => {
   }
 };   
 
+function filtrarProductos(filtro){
+    if(filtro.length < 0){
+        setProductos(productosOriginales)
+        return;
+    }
+
+    
+        const productosFiltrados = productosOriginales.filter((producto) =>
+            producto.name.toLowerCase().includes(filtro.toLowerCase())
+        );
+        setProductos(productosFiltrados)
+}
+
 
     return (
-        <ProductosContext.Provider value={{ obtenerProductos, productos, agregarProducto, obtenerProducto, productoEncontrado, editarProducto, eliminarProducto}}>
+        <ProductosContext.Provider value={{ obtenerProductos, productos, agregarProducto, obtenerProducto, productoEncontrado, editarProducto, eliminarProducto, filtrarProductos}}>
             {children}
         </ProductosContext.Provider>);
 }

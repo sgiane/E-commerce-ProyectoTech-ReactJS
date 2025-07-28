@@ -91,6 +91,27 @@
     /* width: 200px; */
 }
 
+.filtroProd{
+    width: 40%;
+    margin-left: 10px;
+}
+
+#input-filtro{
+    box-shadow: 10px 10px 12px #b44173;
+    border: #b44173 1px solid;
+}
+
+.boton-card-producto.active {
+    background-color: #e0c7f6;
+    color: #b44173;
+    border: 2px solid #b44173;
+}
+
+#btn-pag{
+    width: 40px;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 600px){
 
     .producto-card{
@@ -118,6 +139,12 @@
 .linkProd{
     font-size: 12px;
 }
+
+.filtroProd{
+      
+width: 92%;
+}
+
 }
 
 
