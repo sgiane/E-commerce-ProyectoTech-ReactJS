@@ -19,11 +19,6 @@ function CarritoCard({producto, funcionDisparadora, aumentarCantidad, disminuirC
             </div>
             {<p className="descripcion-carrito">{producto.description}</p>}
 
-        {/* <div className="detalle-contador">
-          <button className="bot-cont" onClick={restarCantidad}>-</button>
-          <span>{producto.cantidad}</span>
-          <button className="bot-cont" onClick={sumarCantidad}>+</button>
-        </div> */}
 
         <div className="cantidad-control">
                 <button className="btncant" onClick={() => disminuirCantidad(producto.id)}>-</button>

@@ -1,11 +1,13 @@
 import React, { createContext, useState, useContext } from 'react';
 import { dispararSweetBasico, dispararSweetBasico2} from '../assets/SweetAlert';
+
 // Crear el contexto de autenticación
 const ProductosContext = createContext();
 export function ProductosProvider({ children }) {
     const [productos, setProductos] = useState([]);
     const [productosOriginales, setProductosOriginales] = useState([])
     const [productoEncontrado, setProductoEncontrado] = useState(null)
+
 
     function obtenerProductos() {
         return (
@@ -143,8 +145,53 @@ function filtrarProductos(filtro){
 }
 
 
+async function actualizarStockEnServidor(idProducto, nuevoStock) {
+  try {
+    await fetch(`https://682e1895746f8ca4a47be0bf.mockapi.io/productos/${idProducto}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ stock: nuevoStock }),
+    });
+  } catch (error) {
+    console.error("Error al actualizar el stock en el servidor:", error);
+  }
+}
+
+function descontarStock(idProducto, cantidad) {
+  setProductos(prev => {
+    const actualizado = prev.map(producto => {
+      if (producto.id === idProducto) {
+        const nuevoStock = producto.stock - cantidad;
+        actualizarStockEnServidor(idProducto, nuevoStock); // sincroniza con backend
+        return { ...producto, stock: nuevoStock };
+      }
+      return producto;
+    });
+    return actualizado;
+  });
+}
+
+
+function restaurarStock(idProducto, cantidad) {
+  setProductos(prev => {
+    const actualizado = prev.map(producto => {
+      if (producto.id === idProducto) {
+        const nuevoStock = producto.stock + cantidad;
+        actualizarStockEnServidor(idProducto, nuevoStock); // sincroniza con backend
+        return { ...producto, stock: nuevoStock };
+      }
+      return producto;
+    });
+    return actualizado;
+  });
+}
+
+
     return (
-        <ProductosContext.Provider value={{ obtenerProductos, productos, agregarProducto, obtenerProducto, productoEncontrado, editarProducto, eliminarProducto, filtrarProductos}}>
+        <ProductosContext.Provider 
+        value={{ obtenerProductos, productos, agregarProducto, 
+        obtenerProducto, productoEncontrado, editarProducto, 
+        eliminarProducto, filtrarProductos, restaurarStock, descontarStock}}>
             {children}
         </ProductosContext.Provider>);
 }

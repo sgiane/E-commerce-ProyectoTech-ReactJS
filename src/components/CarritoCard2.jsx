@@ -13,13 +13,6 @@ function CarritoCard2({ producto, funcionDisparadora, aumentarCantidad, disminui
 
         <div className="carrito-card" >
 
-            {/* <div className="titulo-1"><p className="carrito-titulo-producto"> Producto </p></div>
-                <div className="titulo-2"><p className="carrito-titulo-descripcion">Descripción</p></div>
-                <div className="titulo-3"><p className="carrito-titulo-cantidad"> Cantidad </p></div>
-                <div className="titulo-4"><p className="carrito-titulo-unitario"> Precio unitario </p></div>
-                <div className="titulo-5"><p className="carrito-titulo-subtotal"> Sub total </p></div> */}
-
-
             <div className="prod-carrito2">
 
                 <div className="prod-producto">
@@ -37,10 +30,6 @@ function CarritoCard2({ producto, funcionDisparadora, aumentarCantidad, disminui
                 {<p className="descripcion-carrito2">{producto.description}</p>}
             </div>
 
-            {/* <div className="prod-cantidad">
-                <p className="titulos-card2"> Cantidad: </p>
-                <span>{producto.cantidad}</span>
-            </div> */}
 
             <div className="cantidad-control">
                 <button className="btncant" onClick={() => disminuirCantidad(producto.id)}>-</button>
