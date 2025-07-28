@@ -28,20 +28,20 @@ function Contacto() {
 
                         <p>Completa el formulario y te responderemos.</p>
                     </div>
-                    <form className="form" action="https://formsubmit.co/stefanygct@gmail.com" method="POST">
+                    <form className="form" action="https://formsubmit.co/midulcegiane@gmail.com" method="POST">
                         <div className="item-form">
                             <label className="label-item" htmlFor="nombre">Nombre:</label>
-                            <input className="input-item" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" />
+                            <input className="input-item" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"/>
                         </div>
 
                         <div className="item-form">
                             <label className="label-item" htmlFor="apellido">Apellido:</label>
-                            <input className="input-item" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" />
+                            <input className="input-item" type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$"/>
                         </div>
 
                         <div className="item-form">
                             <label className="label-item" htmlFor="telefono">Teléfono:</label>
-                            <input className="input-item" type="text" name="telefono" id="telefono" placeholder="Ingrese su teléfono" required />
+                            <input className="input-item" type="text" name="telefono" id="telefono" placeholder="Ingrese su teléfono" required pattern="^[0-9]{10,15}$"/>
                         </div>
 
                         <div className="item-form">

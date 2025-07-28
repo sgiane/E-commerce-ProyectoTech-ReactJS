@@ -32,7 +32,7 @@ function Main() {
     //           <img src={img3} className="carousel-img mx-2" alt="..." />
     //         </div>
     //       </div>
-        
+
     //     <div class="carousel-item">
     //       <div className="d-flex justify-content-center flex-wrap">
     //         <img src={img4} className="carousel-img mx-2" alt="..." />
@@ -62,83 +62,120 @@ function Main() {
     // </main >
 
     <main>
-  <div className="content-main">
-    <h1 className="titulo-bienvenida">
-      Las Mejores Tortas y Dulces para tus fiestas, eventos y mucho más en un solo lugar...
-    </h1>
-  </div>
+      <div className="content-main">
+        <h1 className="titulo-bienvenida">
+          Las Mejores Tortas y Dulces para tus fiestas, eventos y mucho más en un solo lugar...
+        </h1>
+      </div>
 
-  {/* ✅ Carrusel ESCRITORIO: 3 imágenes por slide */}
-  <div className="carousel slide d-none d-lg-block" id="carouselDesktop" data-bs-ride="carousel">
-    <div className="carousel-inner">
-      <div className="carousel-item active">
-        <div className="d-flex justify-content-center">
-          <img src={img1} className="carousel-img" />
-          <img src={img2} className="carousel-img" />
-          <img src={img3} className="carousel-img" />
+      {/* ✅ Carrusel ESCRITORIO: 3 imágenes por slide */}
+      <div className="carousel slide d-none d-lg-block" id="carouselDesktop" data-bs-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="d-flex justify-content-center">
+              <img src={img1} className="carousel-img" alt="Torta imposible" />
+              <img src={img2} className="carousel-img" alt="Torta tres leches" />
+              <img src={img3} className="carousel-img" alt="Marquesa de Chocolate" />
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="d-flex justify-content-center">
+              <img src={img4} className="carousel-img" alt="Chocotorta" />
+              <img src={img5} className="carousel-img" alt="Torta de Golosinas" />
+              <img src={img6} className="carousel-img" alt="Torta con Crema" />
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="d-flex justify-content-center">
+              <img src={img7} className="carousel-img" alt="ChesseCake" />
+              <img src={img8} className="carousel-img" alt="Torta de Piña" />
+              <img src={img9} className="carousel-img" alt="Torta de Naranja" />
+            </div>
+          </div>
         </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselDesktop" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon"></span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselDesktop" data-bs-slide="next">
+          <span className="carousel-control-next-icon"></span>
+        </button>
       </div>
-      <div className="carousel-item">
-        <div className="d-flex justify-content-center">
-          <img src={img4} className="carousel-img" />
-          <img src={img5} className="carousel-img" />
-          <img src={img6} className="carousel-img" />
-        </div>
-      </div>
-    </div>
-    <button className="carousel-control-prev" type="button" data-bs-target="#carouselDesktop" data-bs-slide="prev">
-      <span className="carousel-control-prev-icon"></span>
-    </button>
-    <button className="carousel-control-next" type="button" data-bs-target="#carouselDesktop" data-bs-slide="next">
-      <span className="carousel-control-next-icon"></span>
-    </button>
-  </div>
 
-  {/* ✅ Carrusel TABLET: 2 imágenes por slide */}
-  <div className="carousel slide d-none d-md-block d-lg-none" id="carouselTablet" data-bs-ride="carousel">
-    <div className="carousel-inner">
-      <div className="carousel-item active">
-        <div className="d-flex justify-content-center">
-          <img src={img1} className="carousel-img" />
-          <img src={img2} className="carousel-img" />
+      {/* ✅ Carrusel TABLET: 2 imágenes por slide */}
+      <div className="carousel slide d-none d-md-block d-lg-none" id="carouselTablet" data-bs-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="d-flex justify-content-center">
+              <img src={img1} className="carousel-img" alt="Torta imposible" />
+              <img src={img2} className="carousel-img" alt="Torta tres leches" />
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="d-flex justify-content-center">
+              <img src={img3} className="carousel-img" alt="Marquesa de Chocolate" />
+              <img src={img4} className="carousel-img" alt="Chocotorta" />
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="d-flex justify-content-center">
+              <img src={img5} className="carousel-img" alt="Torta de Golosinas" />
+              <img src={img6} className="carousel-img" alt="Torta con Crema" />
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="d-flex justify-content-center">
+              <img src={img7} className="carousel-img" alt="ChesseCake" />
+              <img src={img8} className="carousel-img" alt="Torta de Piña" />
+            </div>
+          </div>
         </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselTablet" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon"></span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselTablet" data-bs-slide="next">
+          <span className="carousel-control-next-icon"></span>
+        </button>
       </div>
-      <div className="carousel-item">
-        <div className="d-flex justify-content-center">
-          <img src={img3} className="carousel-img" />
-          <img src={img4} className="carousel-img" />
-        </div>
-      </div>
-    </div>
-    <button className="carousel-control-prev" type="button" data-bs-target="#carouselTablet" data-bs-slide="prev">
-      <span className="carousel-control-prev-icon"></span>
-    </button>
-    <button className="carousel-control-next" type="button" data-bs-target="#carouselTablet" data-bs-slide="next">
-      <span className="carousel-control-next-icon"></span>
-    </button>
-  </div>
 
-  {/* ✅ Carrusel MÓVIL: 1 imagen por slide */}
-  <div className="carousel slide d-block d-md-none" id="carouselMobile" data-bs-ride="carousel">
-    <div className="carousel-inner">
-      <div className="carousel-item active text-center">
-        <img src={img1} className="carousel-img" />
+      {/* ✅ Carrusel MÓVIL: 1 imagen por slide */}
+      <div className="carousel slide d-block d-md-none" id="carouselMobile" data-bs-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active text-center">
+            <img src={img1} className="carousel-img" alt="Torta imposible" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img2} className="carousel-img" alt="Torta tres leches" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img3} className="carousel-img" alt="Marquesa de Chocolate" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img4} className="carousel-img" alt="Chocotorta" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img5} className="carousel-img" alt="Torta de Golosinas" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img6} className="carousel-img" alt="Torta con Crema" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img7} className="carousel-img" alt="ChesseCake" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img8} className="carousel-img" alt="Torta de Piña" />
+          </div>
+          <div className="carousel-item text-center">
+            <img src={img9} className="carousel-img" alt="Torta de Naranja" />
+          </div>
+        </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon"></span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
+          <span className="carousel-control-next-icon"></span>
+        </button>
       </div>
-      <div className="carousel-item text-center">
-        <img src={img2} className="carousel-img" />
-      </div>
-      <div className="carousel-item text-center">
-        <img src={img3} className="carousel-img" />
-      </div>
-    </div>
-    <button className="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
-      <span className="carousel-control-prev-icon"></span>
-    </button>
-    <button className="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
-      <span className="carousel-control-next-icon"></span>
-    </button>
-  </div>
-</main>
+    </main >
 
   );
 }
