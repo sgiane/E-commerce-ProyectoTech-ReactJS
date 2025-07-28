@@ -162,6 +162,12 @@ function descontarStock(idProducto, cantidad) {
     const actualizado = prev.map(producto => {
       if (producto.id === idProducto) {
         const nuevoStock = producto.stock - cantidad;
+
+        if (nuevoStock < 0) {
+          console.warn("Intento de dejar stock negativo. Operación ignorada.");
+          return producto; // no cambia
+        }
+
         actualizarStockEnServidor(idProducto, nuevoStock); // sincroniza con backend
         return { ...producto, stock: nuevoStock };
       }
@@ -177,6 +183,7 @@ function restaurarStock(idProducto, cantidad) {
     const actualizado = prev.map(producto => {
       if (producto.id === idProducto) {
         const nuevoStock = producto.stock + cantidad;
+
         actualizarStockEnServidor(idProducto, nuevoStock); // sincroniza con backend
         return { ...producto, stock: nuevoStock };
       }
